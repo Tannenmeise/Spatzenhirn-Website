@@ -1,0 +1,44 @@
+body {
+    background-image: url(graphics/bg.png);
+    font-family: 'Trebuchet MS';
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+}
+
+header {
+    background-color: rgb(35, 107, 77);
+    opacity: 80%;
+    color: rgb(252, 250, 243);
+}
+
+main {
+    background-color: white;
+    opacity: 80%;
+}
+
+#top-footer {
+    background-color: rgb(36, 126, 88);
+    opacity: 70%;
+    padding-top: 10px;
+    padding-bottom: 18px;
+    color: rgb(252, 250, 243);
+    font-size: 14px;
+}
+
+.flexbox-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+#bottom-footer {
+    background-color: rgb(35, 114, 84);
+    opacity: 85%;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    color: rgb(243, 241, 229);
+    margin-top: -12px;
+}

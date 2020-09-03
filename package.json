@@ -1,0 +1,24 @@
+{
+  "name": "spatzenhirn_website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js remote"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tannenmeise/Spatzenhirn-Website.git"
+  },
+  "author": "tamara-hezel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tannenmeise/Spatzenhirn-Website/issues"
+  },
+  "homepage": "https://github.com/Tannenmeise/Spatzenhirn-Website#readme",
+  "dependencies": {
+    "@types/mongodb": "^3.5.25",
+    "@types/node": "^14.0.13",
+    "mongodb": "^3.5.9"
+  }
+}

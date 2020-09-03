@@ -1,29 +1,101 @@
 body {
-    background-image: url(graphics/bg.png);
+    background-color: rgb(255, 253, 230);
     font-family: 'Trebuchet MS';
-    width: 1000px;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: -16px;
     text-align: center;
-    margin: auto;
 }
 
-header {
-    background-color: rgb(35, 107, 77);
-    opacity: 80%;
+.flexbox-header {
+    top: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(35, 114, 84);
     color: rgb(252, 250, 243);
+}
+
+#arrow, #arrowUp {
+    margin-left: 60px;
+    margin-top: 20px;
+}
+
+#arrow:hover, #arrowUp:hover {
+    cursor: pointer;
+}
+
+#arrow:hover, #cart:hover, #logo:hover {
+    animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+    0%, 50%, 100% {
+        transform: scale(1);
+    }
+    25%, 75% {
+        transform: scale(1.1);
+    }
+}
+
+#logo {
+    margin-bottom: -2px;
+}
+
+#cart {
+    line-height: 0px;
+    font-size: 12px;
+    margin-right: 60px;
+    margin-top: 6px;
+}
+
+nav {
+    position: fixed;
+    z-index: 2;
+    background-color: rgb(32, 128, 72);
+    width: 180px;
+    opacity: 85%;
+    color: rgb(252, 250, 243);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    visibility: hidden;
+}
+
+ul {
+    text-align: left;
+    font-size: 18px;
+    padding-left: 70px;
+}
+
+li p:hover {
+    cursor: pointer;
+    color: rgb(255, 253, 230);
+    text-shadow: 1px 1px 1px rgb(7, 80, 32)
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#current {
+    color: rgb(230, 215, 164);
+    text-shadow: 1px 1px 1px rgb(7, 80, 32)
 }
 
 main {
+    z-index: 1;
     background-color: white;
-    opacity: 80%;
+    opacity: 100%;
+    margin-top: 102px;
 }
 
-#top-footer {
-    background-color: rgb(36, 126, 88);
-    opacity: 70%;
-    padding-top: 10px;
-    padding-bottom: 18px;
-    color: rgb(252, 250, 243);
-    font-size: 14px;
+footer {
+    margin-bottom: -7px;
+    margin-top: -15px;
 }
 
 .flexbox-footer {
@@ -34,11 +106,32 @@ main {
     padding-right: 100px;
 }
 
+.divider-footer {
+    background-color: rgb(42, 151, 100);
+    padding-bottom: 4px;
+}
+
+#top-footer {
+    background-color: rgb(40, 136, 88);
+    padding-top: 1px;
+    padding-bottom: 1px;
+    color: rgb(252, 250, 243);
+    font-size: 12px;
+}
+
 #bottom-footer {
     background-color: rgb(35, 114, 84);
-    opacity: 85%;
-    padding-top: 20px;
+    padding-top: 16px;
     padding-bottom: 10px;
     color: rgb(243, 241, 229);
-    margin-top: -12px;
+}
+
+.icon {
+    opacity: 80%;
+}
+
+.icon:hover {
+    cursor: pointer;
+    opacity: 100%;
+    text-shadow: 10px;
 }

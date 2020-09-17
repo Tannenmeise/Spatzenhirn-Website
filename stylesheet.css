@@ -94,7 +94,7 @@ main {
 
 footer {
     margin-bottom: -7px;
-    margin-top: -15px;
+    margin-top: -20px;
 }
 
 .flexbox-footer {
@@ -151,7 +151,7 @@ h3 {
 
 .punkte {
     color: rgb(190, 124, 72);
-    margin-bottom: 20px;				 
+    padding-bottom: 5px;				 
 }
 
 hr {
@@ -221,4 +221,32 @@ button {
 
 #flexbox-vogelhaeuser h4 {
     width: 100%;
+}
+/* - */
+
+/* Shop */
+#shop-nav {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    background-color: rgb(42, 151, 100);
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#shop-nav button {
+    color: white;
+    background: none;
+    border: none;
+    font-size: 16px;
+}
+
+#shop-nav button:hover {
+    color: rgb(219, 156, 20);
+}
+
+#shop-intro {
+    padding-top: 21px;
 }

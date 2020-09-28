@@ -26,7 +26,7 @@ var Spatzenhrin;
     if (!port) {
         port = 8100;
     }
-    let databaseUrl = "mongodb+srv://Admin:4dm1n_L0g1n@SPATZENHIRN.dvjdj.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {

@@ -206,6 +206,11 @@ button {
     margin-right: 100px;
 }
 
+#wikiTitel {
+    width: 500px;
+    font-size: 20px;
+}
+
 /* Vogelhaeuser Webpage */
 #gewinner {
     float: right;

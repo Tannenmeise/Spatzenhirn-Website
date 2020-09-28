@@ -6,7 +6,22 @@ const Url = require("url");
 const Mongo = require("mongodb");
 var Spatzenhrin;
 (function (Spatzenhrin) {
-    let orders;
+    // Einreichungen
+    let wikiEinreichungen;
+    let vogelhausEinreichungen;
+    let bewertungen;
+    let kommentare;
+    // Shop
+    let futter;
+    let vogelhaeuser;
+    let moebel;
+    let deko;
+    // Wiki
+    let vogelarten;
+    let fuetterung;
+    let vogelnestVogelhaus;
+    let nachwuchs;
+    let verletzteVoegel;
     let port = Number(process.env.PORT);
     if (!port) {
         port = 8100;
@@ -25,8 +40,23 @@ var Spatzenhrin;
         let options = { useNewUrlParser: true, useUnifiedTopology: true };
         let mongoClient = new Mongo.MongoClient(_url, options);
         await mongoClient.connect();
-        orders = mongoClient.db("Eisdiele").collection("Bestellungen");
-        console.log("Database connection" + orders != undefined);
+        // Einreichungen
+        wikiEinreichungen = mongoClient.db("Einreichungen").collection("Wikieintraege");
+        vogelhausEinreichungen = mongoClient.db("Einreichungen").collection("Vogelhaeuser");
+        bewertungen = mongoClient.db("Einreichungen").collection("Bewertungen");
+        kommentare = mongoClient.db("Einreichungen").collection("Kommentare");
+        // Shop
+        futter = mongoClient.db("Shop").collection("Futter");
+        vogelhaeuser = mongoClient.db("Shop").collection("Vogelhaeuser");
+        moebel = mongoClient.db("Shop").collection("Moebel");
+        deko = mongoClient.db("Shop").collection("Deko");
+        // Wiki
+        vogelarten = mongoClient.db("Wiki").collection("Vogelarten");
+        fuetterung = mongoClient.db("Wiki").collection("Fuetterung");
+        vogelnestVogelhaus = mongoClient.db("Wiki").collection("Vogelnest-Vogelhaus");
+        nachwuchs = mongoClient.db("Wiki").collection("Nachwuchs");
+        verletzteVoegel = mongoClient.db("Wiki").collection("verletzte_Voegel");
+        // console.log("Database connection" + orders != undefined);
     }
     function handleListen() {
         console.log("Listening");
@@ -40,24 +70,37 @@ var Spatzenhrin;
             let id = urlWithQuery.query["id"];
             let objID = new Mongo.ObjectId(id);
             switch (urlWithQuery.pathname) {
-                case "/send": // Bestellung absenden
-                    orders.insertOne(urlWithQuery.query);
+                case "/submitArticle": // Artikel einreichen
+                    wikiEinreichungen.insertOne(urlWithQuery.query);
                     break;
-                case "/show": // Bestellungen anzeigen
+                case "/submitBirdhouse": // Vogelhausbild einreichen
+                    vogelhausEinreichungen.insertOne(urlWithQuery.query);
+                    break;
+                case "/submitReview": // Bewertung einreichen
+                    bewertungen.insertOne(urlWithQuery.query);
+                    break;
+                case "/submitComment": // Kommentar einreichen
+                    kommentare.insertOne(urlWithQuery.query);
+                    break;
+                /*
+                case "/showShopFeed":   // zeigen
                     _response.write(JSON.stringify(await orders.find().toArray()));
                     break;
-                case "/deleteAll": // Alle Bestellungen löschen
+                */
+                /*
+                case "/show":   // zeigen
+                    _response.write(JSON.stringify(await orders.find().toArray()));
+                    break;
+                case "/deleteAll":   // Alle Bestellungen löschen
                     orders.deleteMany({});
                     break;
-                case "/addStatusFinished": // Status einer Bestellung auf "fertig" setzen
+                case "/addStatusFinished":   // Status einer Bestellung auf "fertig" setzen
                     await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
                     break;
-                case "/addStatusDelivered": // Status einer Bestellung auf "geliefert" setzen
-                    await orders.updateOne({ "_id": objID }, { $set: { status: "geliefert" } });
-                    break;
-                case "/removeOne": // Eine bestimmte Bestellung löschen
+                case "/removeOne":   // Eine bestimmte Bestellung löschen
                     await orders.deleteOne({ "_id": objID });
                     break;
+                */
                 default:
                     _response.write(_request.url);
                     console.log("Pathname didn't match up with any of the cases.");

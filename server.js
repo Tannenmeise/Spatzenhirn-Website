@@ -26,7 +26,10 @@ var Spatzenhrin;
     if (!port) {
         port = 8100;
     }
-    let databaseUrl = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    // remote
+    // let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    // local
+    let databaseUrl = "mongodb://localhost:27017";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {
@@ -81,6 +84,9 @@ var Spatzenhrin;
                     break;
                 case "/submitComment": // Kommentar einreichen
                     kommentare.insertOne(urlWithQuery.query);
+                    break;
+                case "/zeigeVogelarten": // zeigen
+                    _response.write(JSON.stringify(await vogelarten.find().toArray()));
                     break;
                 /*
                 case "/showShopFeed":   // zeigen

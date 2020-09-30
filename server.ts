@@ -27,7 +27,11 @@ export namespace Spatzenhrin {
         port = 8100;
     }
 
-    let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    // remote
+    // let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    // local
+    let databaseUrl: string = "mongodb://localhost:27017";
+
 
     startServer(port);
     connectToDatabase(databaseUrl);
@@ -92,6 +96,9 @@ export namespace Spatzenhrin {
                     break;
                 case "/submitComment":   // Kommentar einreichen
                     kommentare.insertOne(urlWithQuery.query);
+                    break;
+                case "/zeigeVogelarten":   // zeigen
+                    _response.write(JSON.stringify(await vogelarten.find().toArray()));
                     break;
                 /*
                 case "/showShopFeed":   // zeigen

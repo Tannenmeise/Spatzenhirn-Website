@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="de">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, inital-scale=1.0">
+        <link rel="stylesheet" href="stylesheet.css">
+        <script src="script.js" defer=""></script>
+        <link rel="icon" href="graphics/favicon.png">
+        <title>Spatzenhirn</title>
+    </head>
+    <body>
+        <header>
+            <div class="flexbox-header">
+                <div>
+                    <p><img id="arrow" src="graphics/buttons/arrow.png" alt="dropMenuArrow"></p>
+                </div>
+                <div id="logo">
+                    <p><a href="home.html"><img src="graphics/logo3.png" alt="logo"></a></p>
+                </div>
+                <div id="cart">
+                    <a href="einkaufswagen.html">
+                        <p><img src="graphics/icons/cart.png" alt="einkaufswagen"></p>
+                        <p>Einkaufswagen</p>
+                    </a>
+                </div>
+            </div>
+            <nav id="collapseable">
+                <ul>
+                    <li><p><a href="home.html">Start</a></p></li>
+                    <li><p><a href="info.html" id="current">Info</a></p></li>
+                    <li><p><a href="shop.html">Shop</a></p></li>
+                    <li><p><a href="vogelhaeuser.html">Vogelhäuser</a></p></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <div id="wiki-nav">
+                <img src="graphics/wiki_logo.png" alt="wiki-logo">
+                <h2>Spatzenhirn-Wiki</h2>
+                <p><a href="info/vogelarten.html">Vogelarten</a></p>
+                <p><a href="info/fuetterung.html">Fütterung</a></p>
+                <p><a href="info/vogelnest-vogelhaus.html">Vogelnest vs. Vogelhaus</a></p>
+                <p><a href="info/nachwuchs.html">Nachwuchs</a></p>
+                <p><a href="info/verletzte_voegel.html">Verletzte Vögel</a></p>
+            </div>
+            <p class="punkte">...</p>
+            <h3>Willkommen auf der Spatzenhirn-Wiki!</h3>
+            <div class="introduction">
+                <p>Hier findest du allerlei Informationen über all die Piepmätze, die sich in deinem Garten aufhalten oder dir einen Besuch abstatten.</p>
+                <p>
+                    Hinterlasse gerne dein Feedback und Kritik mit entsprechendem Betreff unter:
+                    <button id="email" type="button">feedback@spatzenhirn.de</button>
+                </p>
+            </div>
+            <div class="introduction">
+                <p>Willst du einen eigenen Artikel verfassen, der hier auf dieser Seite veröffentlicht werden soll?</p>
+                <p>
+                    Dann gehe auf folgendes Formular und überzeuge uns von deinem Wissen:
+                    <a href="info/artikel_einreichen.html"><button id="submit-article" type="button">Wiki-Artikel einreichen</button></a>
+                </p>
+            </div>
+            <p class="punkte">...</p>
+            <hr>
+            <p class="punkte">...</p>
+            <h4>Neue Einträge</h4>
+            <div id="flexbox-wiki">
+                <div>
+                    <p>Eintrag 1</p>
+                </div>
+                <div>
+                    <p>Eintrag 2</p>
+                </div>
+                <div>
+                    <p>Eintrag 3</p>
+                </div>
+            </div>
+            <p class="punkte">...</p>
+        </main>
+        <footer>
+            <div id="top-footer">
+                <p>Copyright 2020 © All rights Reserved</p>
+                <p>
+                    <a href="impressum.html" target="_blank">Impressum</a> | <a href="datenschutz.html" target="_blank">Datenschutz</a> | <a href="agb.html" target="_blank">AGB</a>
+                </p>
+            </div>
+            <div class="divider-footer"></div>
+            <div class="flexbox-footer" id="bottom-footer">
+                <div>
+                    <p>Folge uns auf Social Media</p>
+                    <img class="icon" src="graphics/icons/twitter.png" alt="twitter-Icon">
+                    <img class="icon" src="graphics/icons/facebook.png" alt="facebook-Icon">
+                    <img class="icon" src="graphics/icons/youtube.png" alt="youtube-Icon">
+                    <img class="icon" src="graphics/icons/instagram.png" alt="instagram-Icon">
+                </div>
+                <div>
+                    <p>Auch als App erhältlich</p>
+                    <img class="icon" src="graphics/icons/googlePlay.png" alt="googlePlay-Icon">
+                    <img class="icon" src="graphics/icons/appStore.png" alt="appStore-Icon">
+                </div>
+            </div>
+        </footer>
+    </body>
+
+</html>

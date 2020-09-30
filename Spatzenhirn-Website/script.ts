@@ -8,12 +8,12 @@ function handleArrowClick(_event: Event): void {
 
     if (arrow.id == "arrow") {
         document.getElementById("collapseable")!.setAttribute("style", "visibility: visible");
-        document.getElementById("arrow")!.setAttribute( "src", "/graphics/buttons/arrowUp.png" );
+        document.getElementById("arrow")!.setAttribute( "src", "/Spatzenhirn-Website/graphics/buttons/arrowUp.png" );
         document.getElementById("arrow")!.setAttribute( "id", "arrowUp" );
     } else {
         console.log("Called else statement");
         document.getElementById("collapseable")!.setAttribute("style", "visibility: hidden");
-        document.getElementById("arrowUp")!.setAttribute( "src", "/graphics/buttons/arrow.png" );
+        document.getElementById("arrowUp")!.setAttribute( "src", "/Spatzenhirn-Website/graphics/buttons/arrow.png" );
         document.getElementById("arrowUp")!.setAttribute( "id", "arrow" );
     }
     

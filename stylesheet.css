@@ -175,6 +175,7 @@ hr {
 
 #wiki-nav h2 {
     font-family: 'gabriola';
+    font-size: 24px;
     margin-top: -7px;
     margin-bottom: -2px;
 }
@@ -187,7 +188,6 @@ hr {
 
 #wiki-nav a:hover {
     color: rgb(219, 156, 20);
-    cursor: default;
 }
 
 button {

@@ -1,10 +1,13 @@
 "use strict";
-// Speichern der Bestellung in die Datenbank
+// Speichern des Artikels in die Datenbank
 let formData;
 document.getElementById("submit")?.addEventListener("click", handleSubmitDB);
 async function handleSubmitDB() {
     formData = new FormData(document.forms[0]);
-    let url = "https://spatzenhirn.herokuapp.com/submitArticle";
+    // remote
+    // let url: string = "https://spatzenhirn.herokuapp.com/submitArticle";
+    // local
+    let url = "http://localhost:8100/submitArticle";
     let query = new URLSearchParams(formData);
     url = url + "?" + query.toString();
     await fetch(url);

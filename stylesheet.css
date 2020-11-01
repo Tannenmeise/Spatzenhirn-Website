@@ -211,6 +211,32 @@ button {
     font-size: 20px;
 }
 
+/* Einreichungen Info-Seite*/
+.flexbox-einreichung {
+    
+}
+/* - */
+
+/* Einreichungen ADMIN */
+.flexbox-einreichung-admin {
+    padding: 25px;
+}
+
+.flexbox-einreichung-admin div {
+    padding-bottom: 10px;
+}
+
+.flexbox-einreichung-admin input {
+    width: 400px;
+    font-size: 16px;
+}
+
+.flexbox-einreichung-admin textarea {
+    width: 700px;
+    height: 300px;
+}
+/* - */
+
 /* Vogelarten */
 .flexbox-vogelart {
     display: flex;

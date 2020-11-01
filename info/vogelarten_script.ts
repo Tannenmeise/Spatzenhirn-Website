@@ -17,9 +17,9 @@ handleZeigeVogelarten();
 async function handleZeigeVogelarten(): Promise<void> {
 
     // remote
-    // let response: Response = await fetch("https://spatzenhirn.herokuapp.com/zeigeVogelarten");
+    let response: Response = await fetch("https://spatzenhirn.herokuapp.com/zeigeVogelarten");
     // local
-    let response: Response = await fetch("http://localhost:8100/zeigeVogelarten");
+    // let response: Response = await fetch("http://localhost:8100/zeigeVogelarten");
     console.log(response);
     let vogelarten: Vogelart[] = await response.json();
     let output: HTMLDivElement = <HTMLDivElement>document.getElementById("ausgabeV");

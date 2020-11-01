@@ -6,20 +6,9 @@ export namespace Spatzenhrin {
 
     // Einreichungen
     let wikiEinreichungen: Mongo.Collection;
-    let vogelhausEinreichungen: Mongo.Collection;
-    let bewertungen: Mongo.Collection;
-    let kommentare: Mongo.Collection;
-    // Shop
-    let futter: Mongo.Collection;
-    let vogelhaeuser: Mongo.Collection;
-    let moebel: Mongo.Collection;
-    let deko: Mongo.Collection;
     // Wiki
     let vogelarten: Mongo.Collection;
-    let fuetterung: Mongo.Collection;
-    let vogelnestVogelhaus: Mongo.Collection;
-    let nachwuchs: Mongo.Collection;
-    let verletzteVoegel: Mongo.Collection;
+    let wikiAufnahmen: Mongo.Collection;
 
 
     let port: number = Number(process.env.PORT);
@@ -28,9 +17,9 @@ export namespace Spatzenhrin {
     }
 
     // remote
-    // let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
     // local
-    let databaseUrl: string = "mongodb://localhost:27017";
+    // let databaseUrl: string = "mongodb://localhost:27017";
 
 
     startServer(port);
@@ -52,21 +41,9 @@ export namespace Spatzenhrin {
         await mongoClient.connect();
         // Einreichungen
         wikiEinreichungen = mongoClient.db("Einreichungen").collection("Wikieintraege");
-        vogelhausEinreichungen = mongoClient.db("Einreichungen").collection("Vogelhaeuser");
-        bewertungen = mongoClient.db("Einreichungen").collection("Bewertungen");
-        kommentare = mongoClient.db("Einreichungen").collection("Kommentare");
-        // Shop
-        futter = mongoClient.db("Shop").collection("Futter");
-        vogelhaeuser = mongoClient.db("Shop").collection("Vogelhaeuser");
-        moebel = mongoClient.db("Shop").collection("Moebel");
-        deko = mongoClient.db("Shop").collection("Deko");
         // Wiki
         vogelarten = mongoClient.db("Wiki").collection("Vogelarten");
-        fuetterung = mongoClient.db("Wiki").collection("Fuetterung");
-        vogelnestVogelhaus = mongoClient.db("Wiki").collection("Vogelnest-Vogelhaus");
-        nachwuchs = mongoClient.db("Wiki").collection("Nachwuchs");
-        verletzteVoegel = mongoClient.db("Wiki").collection("verletzte_Voegel");
-        // console.log("Database connection" + orders != undefined);
+        wikiAufnahmen = mongoClient.db("Wiki").collection("Aufnahmen");
     }
 
     function handleListen(): void {
@@ -88,37 +65,18 @@ export namespace Spatzenhrin {
                 case "/submitArticle":   // Artikel einreichen
                     wikiEinreichungen.insertOne(urlWithQuery.query);
                     break;
-                case "/submitBirdhouse":   // Vogelhausbild einreichen
-                    vogelhausEinreichungen.insertOne(urlWithQuery.query);
+                case "/zeigeEinreichungen":   // Vogelarten zeigen
+                    _response.write(JSON.stringify(await wikiEinreichungen.find().toArray()));
                     break;
-                case "/submitReview":   // Bewertung einreichen
-                    bewertungen.insertOne(urlWithQuery.query);
+                case "/includeArticle": // Artikel aufnehmen
+                    wikiAufnahmen.insertOne(urlWithQuery.query);
                     break;
-                case "/submitComment":   // Kommentar einreichen
-                    kommentare.insertOne(urlWithQuery.query);
+                case "/removeOne": // 1 Artikel löschen
+                    wikiEinreichungen.deleteOne({ "_id": objID });
                     break;
-                case "/zeigeVogelarten":   // zeigen
+                case "/zeigeVogelarten":   // Vogelarten zeigen
                     _response.write(JSON.stringify(await vogelarten.find().toArray()));
                     break;
-                /*
-                case "/showShopFeed":   // zeigen
-                    _response.write(JSON.stringify(await orders.find().toArray()));
-                    break;
-                */
-                /*
-                case "/show":   // zeigen
-                    _response.write(JSON.stringify(await orders.find().toArray()));
-                    break;
-                case "/deleteAll":   // Alle Bestellungen löschen
-                    orders.deleteMany({});
-                    break;
-                case "/addStatusFinished":   // Status einer Bestellung auf "fertig" setzen
-                    await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
-                    break;
-                case "/removeOne":   // Eine bestimmte Bestellung löschen
-                    await orders.deleteOne({ "_id": objID });
-                    break;
-                */
                 default:
                     _response.write(_request.url);
                     console.log("Pathname didn't match up with any of the cases.");

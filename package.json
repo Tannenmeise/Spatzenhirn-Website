@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node Spatzenhirn-Website/server.js"
+    "start": "node Spatzenhirn-Website/server.js remote"
   },
   "repository": {
     "type": "git",

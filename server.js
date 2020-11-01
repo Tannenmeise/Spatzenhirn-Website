@@ -8,20 +8,9 @@ var Spatzenhrin;
 (function (Spatzenhrin) {
     // Einreichungen
     let wikiEinreichungen;
-    let vogelhausEinreichungen;
-    let bewertungen;
-    let kommentare;
-    // Shop
-    let futter;
-    let vogelhaeuser;
-    let moebel;
-    let deko;
     // Wiki
     let vogelarten;
-    let fuetterung;
-    let vogelnestVogelhaus;
-    let nachwuchs;
-    let verletzteVoegel;
+    let wikiAufnahmen;
     let port = Number(process.env.PORT);
     if (!port) {
         port = 8100;
@@ -45,21 +34,9 @@ var Spatzenhrin;
         await mongoClient.connect();
         // Einreichungen
         wikiEinreichungen = mongoClient.db("Einreichungen").collection("Wikieintraege");
-        vogelhausEinreichungen = mongoClient.db("Einreichungen").collection("Vogelhaeuser");
-        bewertungen = mongoClient.db("Einreichungen").collection("Bewertungen");
-        kommentare = mongoClient.db("Einreichungen").collection("Kommentare");
-        // Shop
-        futter = mongoClient.db("Shop").collection("Futter");
-        vogelhaeuser = mongoClient.db("Shop").collection("Vogelhaeuser");
-        moebel = mongoClient.db("Shop").collection("Moebel");
-        deko = mongoClient.db("Shop").collection("Deko");
         // Wiki
         vogelarten = mongoClient.db("Wiki").collection("Vogelarten");
-        fuetterung = mongoClient.db("Wiki").collection("Fuetterung");
-        vogelnestVogelhaus = mongoClient.db("Wiki").collection("Vogelnest-Vogelhaus");
-        nachwuchs = mongoClient.db("Wiki").collection("Nachwuchs");
-        verletzteVoegel = mongoClient.db("Wiki").collection("verletzte_Voegel");
-        // console.log("Database connection" + orders != undefined);
+        wikiAufnahmen = mongoClient.db("Wiki").collection("Aufnahmen");
     }
     function handleListen() {
         console.log("Listening");
@@ -76,37 +53,18 @@ var Spatzenhrin;
                 case "/submitArticle": // Artikel einreichen
                     wikiEinreichungen.insertOne(urlWithQuery.query);
                     break;
-                case "/submitBirdhouse": // Vogelhausbild einreichen
-                    vogelhausEinreichungen.insertOne(urlWithQuery.query);
+                case "/zeigeEinreichungen": // Vogelarten zeigen
+                    _response.write(JSON.stringify(await wikiEinreichungen.find().toArray()));
                     break;
-                case "/submitReview": // Bewertung einreichen
-                    bewertungen.insertOne(urlWithQuery.query);
+                case "/includeArticle": // Artikel aufnehmen
+                    wikiAufnahmen.insertOne(urlWithQuery.query);
                     break;
-                case "/submitComment": // Kommentar einreichen
-                    kommentare.insertOne(urlWithQuery.query);
+                case "/removeOne": // 1 Artikel löschen
+                    wikiEinreichungen.deleteOne({ "_id": objID });
                     break;
-                case "/zeigeVogelarten": // zeigen
+                case "/zeigeVogelarten": // Vogelarten zeigen
                     _response.write(JSON.stringify(await vogelarten.find().toArray()));
                     break;
-                /*
-                case "/showShopFeed":   // zeigen
-                    _response.write(JSON.stringify(await orders.find().toArray()));
-                    break;
-                */
-                /*
-                case "/show":   // zeigen
-                    _response.write(JSON.stringify(await orders.find().toArray()));
-                    break;
-                case "/deleteAll":   // Alle Bestellungen löschen
-                    orders.deleteMany({});
-                    break;
-                case "/addStatusFinished":   // Status einer Bestellung auf "fertig" setzen
-                    await orders.updateOne({ "_id": objID }, { $set: { status: "fertig" } });
-                    break;
-                case "/removeOne":   // Eine bestimmte Bestellung löschen
-                    await orders.deleteOne({ "_id": objID });
-                    break;
-                */
                 default:
                     _response.write(_request.url);
                     console.log("Pathname didn't match up with any of the cases.");

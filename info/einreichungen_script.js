@@ -2,9 +2,9 @@
 handleZeigeEinreichungenAdmin();
 async function handleZeigeEinreichungenAdmin() {
     // remote
-    // let response: Response = await fetch("https://spatzenhirn.herokuapp.com/zeigeEinreichungen");
+    let response = await fetch("https://spatzenhirn.herokuapp.com/zeigeEinreichungen");
     // local
-    let response = await fetch("http://localhost:8100/zeigeEinreichungen");
+    // let response: Response = await fetch("http://localhost:8100/zeigeEinreichungen");
     console.log(response);
     let einreichungen = await response.json();
     let output = document.getElementById("ausgabeE");
@@ -46,9 +46,9 @@ async function handleInclude(_e) {
     let parentDiv = clickedButton.parentElement;
     let idToRemove = parentDiv.getAttribute("_id");
     // remote
-    // let url: string = "https://spatzenhirn.herokuapp.com/includeArticle";
+    let url = "https://spatzenhirn.herokuapp.com/includeArticle";
     // local
-    let url = "http://localhost:8100/includeArticle";
+    // let url: string = "http://localhost:8100/includeArticle";
     let query = new URLSearchParams(formData2);
     url = url + "?" + query.toString();
     await fetch(url);

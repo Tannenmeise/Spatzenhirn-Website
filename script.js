@@ -10,7 +10,6 @@ function handleArrowClick(_event) {
         document.getElementById("arrow").setAttribute("id", "arrowUp");
     }
     else {
-        console.log("Called else statement");
         document.getElementById("collapseable").setAttribute("style", "visibility: hidden");
         document.getElementById("arrowUp").setAttribute("src", "graphics/buttons/arrow.png");
         document.getElementById("arrowUp").setAttribute("id", "arrow");

@@ -16,9 +16,9 @@ var Spatzenhrin;
         port = 8100;
     }
     // remote
-    // let databaseUrl: string = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
+    let databaseUrl = "mongodb+srv://Admin:4dm1n_L0g1n@spatzenhirn.uts2e.mongodb.net/Einreichungen?retryWrites=true&w=majority";
     // local
-    let databaseUrl = "mongodb://localhost:27017";
+    // let databaseUrl: string = "mongodb://localhost:27017";
     startServer(port);
     connectToDatabase(databaseUrl);
     function startServer(_port) {

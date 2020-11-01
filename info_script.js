@@ -2,9 +2,9 @@
 handleZeigeEinreichungen();
 async function handleZeigeEinreichungen() {
     // remote
-    // let response: Response = await fetch("https://spatzenhirn.herokuapp.com/zeigeEinreichungen");
+    let response = await fetch("https://spatzenhirn.herokuapp.com/zeigeEinreichungen");
     // local
-    let response = await fetch("http://localhost:8100/zeigeEinreichungen");
+    // let response: Response = await fetch("http://localhost:8100/zeigeEinreichungen");
     console.log(response);
     let einreichungen = await response.json();
     let output = document.getElementById("flexbox-wiki");

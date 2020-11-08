@@ -34,7 +34,7 @@ function erstelleEinreichungInfo(_e: Einreichung): HTMLElement {
     einreichungDiv.appendChild(titelH2);
 
     let textP: HTMLHeadingElement = document.createElement("p");
-    textP.innerHTML = _e.Titel;
+    textP.innerHTML = _e.Text;
     einreichungDiv.appendChild(textP);
 
     return einreichungDiv;

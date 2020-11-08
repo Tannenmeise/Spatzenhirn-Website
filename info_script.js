@@ -21,7 +21,7 @@ function erstelleEinreichungInfo(_e) {
     titelH2.innerHTML = _e.Titel;
     einreichungDiv.appendChild(titelH2);
     let textP = document.createElement("p");
-    textP.innerHTML = _e.Titel;
+    textP.innerHTML = _e.Text;
     einreichungDiv.appendChild(textP);
     return einreichungDiv;
 }
